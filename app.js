@@ -4,7 +4,7 @@ if(process.env.NODE_ENV !== "production"){
 }
 
 const mongoose = require('mongoose');
-const Product = require('./models/Product.js');
+const Product = require('./models/product.js');
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Products';
 const app = express();
 
@@ -20,5 +20,5 @@ app.get("/api/", async (req,res)=> {
     res.status(201).json(products);
 });
 
-
-app.listen(3000,console.log('connected backend'));
+const port = process.env.PORT || 3000;
+app.listen(port,console.log('connected backend'));
